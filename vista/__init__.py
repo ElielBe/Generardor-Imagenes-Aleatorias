@@ -1,0 +1,1 @@
+from .interfaz_gui import VistaApp

@@ -1,0 +1,1 @@
+from .motor_arte import MotorArteGenerativo

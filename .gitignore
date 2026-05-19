@@ -1,0 +1,23 @@
+# --- Caché de Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Archivos del Entorno Virtual (por si usas uno) ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- Imágenes Generadas (Galería Local) ---
+galeria_arte/
+
+# --- Archivos de configuración del editor/IDE ---
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
