@@ -13,12 +13,12 @@ class MotorArteGenerativo:
 
         # Paleta de Colores
         paleta = []
-        for _ in range(5):
+        for _ in range(10):
             paleta.append((
-                rng_color.randint(40, 255),
-                rng_color.randint(40, 255),
-                rng_color.randint(40, 255),
-                rng_color.randint(30, 80)
+                rng_color.randint(80, 255),
+                rng_color.randint(80, 255),
+                rng_color.randint(80, 255),
+                rng_color.randint(40, 80)
             ))
 
         # Densidad y comportamiento

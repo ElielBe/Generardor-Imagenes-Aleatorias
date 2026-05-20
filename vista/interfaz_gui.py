@@ -46,6 +46,13 @@ class VistaApp:
         self.entry_forma2.insert(0, "Fluido")
         self.entry_forma2.pack(pady=5)
 
+        self.btn_sorpresa = tk.Button(
+            self.frame_inputs, text="🎲 SORPRENDERME", font=("Arial", 10, "bold"),
+            bg="#374151", fg="#e5e7eb", activebackground="#4b5563", activeforeground="white",
+            bd=0, padx=10, pady=6, command=self.randomizar_todo, cursor="hand2"
+        )
+        self.btn_sorpresa.pack(fill=tk.X, pady=5)
+
         self.btn_generar = tk.Button(
             self.frame_inputs, text="GENERAR IMAGEN", font=("Arial", 11, "bold"),
             bg="#4f46e5", fg="white", activebackground="#4338ca", activeforeground="white",
@@ -149,3 +156,22 @@ class VistaApp:
             
     def _on_mousewheel(self, event):
         self.canvas_scroll.yview_scroll(int(-1 * (event.delta / 120)), "units")
+
+    def _randomizar_campo(self, campo_entry, tipo_banco):
+        # Borra el texto actual de un Entry e inserta una palabra del banco del controlador.
+        seeds = self.controlador.obtener_semillas_aleatorias()
+        campo_entry.delete(0, tk.END)
+        campo_entry.insert(0, seeds[tipo_banco])
+
+    def randomizar_todo(self):
+        # Cambia las tres cajas de texto al mismo tiempo con una combinación nueva.
+        c, f1, f2 = self.controlador.obtener_semillas_aleatorias()
+        
+        self.entry_color.delete(0, tk.END)
+        self.entry_color.insert(0, c)
+        
+        self.entry_forma1.delete(0, tk.END)
+        self.entry_forma1.insert(0, f1)
+        
+        self.entry_forma2.delete(0, tk.END)
+        self.entry_forma2.insert(0, f2)

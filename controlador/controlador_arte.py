@@ -1,4 +1,5 @@
 import os
+import random
 
 class ControladorArte:
     def __init__(self, vista, modelo_clase):
@@ -8,6 +9,18 @@ class ControladorArte:
         self.historial_imagenes = []  
         self.output_dir = "galeria_arte"
         os.makedirs(self.output_dir, exist_ok=True)
+
+        # Listas de palabras para el generador aleatorio de semillas
+        self.banco_colores = ["Cosmos", "Magma", "Neon", "Pastel", "Otoño", "Ceniza", "Aurora", "Abismo", "Ciberpunk", "Cuántico"]
+        self.banco_formas1 = ["Fractal", "Hiperborea", "Matriz", "Nebulosa", "Vórtice", "Caos", "Ondas", "Grama", "Estelar", "Estática"]
+        self.banco_formas2 = ["Fluido", "Cables", "Humo", "Raíces", "Fibras", "Viento", "Flujo", "Rayo", "Lianas", "Cristal"]
+
+    def obtener_semillas_aleatorias(self):
+        # Devuelve una tupla con tres palabras al azar de nuestros bancos.
+        c = random.choice(self.banco_colores)
+        f1 = random.choice(self.banco_formas1)
+        f2 = random.choice(self.banco_shapes2) if hasattr(self, 'banco_shapes2') else random.choice(self.banco_formas2)
+        return c, f1, f2
 
     def procesar_peticion_arte(self, s_color, s_forma1, s_forma2):
         s_color = s_color.strip() or "Anonimo"
